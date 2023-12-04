@@ -55,6 +55,8 @@ library(factoextra)
 library(Factoshiny)
 library(kableExtra)
 library(DT)
+library(vegan)
+library(vegan)
 ```
 
 # Symptom analysis
@@ -1013,57 +1015,54 @@ datatable(result_table,
 
 Perform a PERMANOVA test for each inoculum.
 
+PERMANOVA, (Permutational Multivariate ANOVA), is a non-parametric alternative to MANOVA, or multivariate ANOVA test. It is appropriate with multiple sets of variables that do not meet the assumptions of MANOVA, namely multivariate normality. It operates on a distance matrix constructed from any dissimilarity measure, and tests the null hypothesis that there are no differences in the relative magnitude (or presence/absence) of a set of variables among objects from different treatments or groups. P-values are calculated via permutation tests.
+
 ```{r}
-library(vegan)
-
+# Set the seed option with high values
 set.seed(1234)
-# head(df)
 
+# Subset the data for AB21
 ab21<-subset(df,result_df$inoculum=="AB21")
 
+# Crate a distance matrix
 matrix_dist_AB21<-vegdist(ab21[,c(4:11,13)],method="gower")
 
-# nmds<-metaMDS(ab21[,c(4:11,13)],distance="gower")
-# plot(nmds,display="sites",  type = "p")
-
+# Perform the permanova test
 permanova_ab21 <-adonis2(sqrt(matrix_dist_AB21)~ab21$treatment,permutations = 9999)
 permanova_ab21
 ```
 
 ```{r}
+# Set the seed option with high values
 set.seed(1234)
-# head(df)
 
+# Subset the data for AB1
 ab1<-subset(df,result_df$inoculum=="AB1")
 
+# Crate a distance matrix
 matrix_dist_AB1<-vegdist(ab1[,c(4:11,13)],method="gower")
 
-# nmds<-metaMDS(ab21[,c(4:11,13)],distance="gower")
-# plot(nmds,display="sites",  type = "p")
-
+# Perform the permanova test
 permanova_ab1 <-adonis2(sqrt(matrix_dist_AB1)~ab1$treatment,permutations = 9999)
 permanova_ab1
 ```
 
-
-
-
-
 ```{r}
+# Set the seed option with high values
 set.seed(1234)
-# head(df)
 
+# Subset the data for NI
 ni <-subset(df,result_df$inoculum=="NI")
 
+# Crate a distance matrix
 matrix_dist_NI<-vegdist(ni[,c(4:11,13)],method="gower")
 
-# nmds<-metaMDS(ab21[,c(4:11,13)],distance="gower")
-# plot(nmds,display="sites",  type = "p")
-
+# Perform the permanova test
 permanova_ni <-adonis2(sqrt(matrix_dist_NI)~ni$treatment,permutations = 9999)
 permanova_ni
 ```
 
+The permanova results show a significative difference between treatments in NI and AB1. There is not significative statistic difference between treatment in AB21.
 
 
 
