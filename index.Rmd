@@ -1062,7 +1062,7 @@ permanova_ni <-adonis2(sqrt(matrix_dist_NI)~ni$treatment,permutations = 9999)
 permanova_ni
 ```
 
-The permanova results show a significative difference between treatments in NI and AB1. There is not significative statistic difference between treatment in AB21.
+The permanova results show a significative difference between treatments in NI and AB1. There is not significative statistic difference between treatments in AB21.
 
 
 
