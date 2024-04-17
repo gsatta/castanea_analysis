@@ -7,7 +7,7 @@ output: html_document
 
 # Introduction
 
-This paper presents the process of analyzing the results of a survey of chestnut seedlings. In particular, the plants were inoculated with two different *Phytophthora* species, *P. cinnamomi* and *P. cambivora*, leaving one control thesis without pathogen inoculation. In each of the three theses inoculated or not, treatments with five different products were tested, leaving one control thesis without treatment.
+This paper presents the process of analyzing the results of a survey of chestnut seedlings. In particular, the plants were inoculated with two different *Phytophthora* species, *P. cinnamomi* and *P. cambivora*, leaving one control thesis without pathogen inoculation. In each of the three theses inoculated or not, treatments with five different products were tested, leaving one control thesis without treatment.FF
 
 The different treatments are as follows:
 
